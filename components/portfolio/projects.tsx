@@ -6,9 +6,9 @@ import { ExternalLink, Github, Clock } from "lucide-react";
 
 const projects = [
   {
-    title: "Med Vet Hayna",
+    title: "Thayná",
     description:
-      "Site institucional desenvolvido para a Med Vet Hayna, com foco em apresentar servicos, contato e uma experiencia responsiva.",
+      "Site institucional desenvolvido para a Thayná, com foco em apresentar servicos, contato e uma experiencia responsiva.",
     image: "/projects/medvethayna-cover.png",
     technologies: ["Next.js", "React", "CSS"],
     liveUrl: "https://medvethayna.com.br/",
