@@ -52,7 +52,7 @@ export function Hero() {
                 <Github className="h-5 w-5" />
               </a>
               <a
-                href="https://linkedin.com/in/seu-usuario"
+                href="https://www.linkedin.com/in/eduardobuenog"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-2 rounded-full bg-secondary hover:bg-primary hover:text-primary-foreground transition-colors"

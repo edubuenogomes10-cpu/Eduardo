@@ -43,7 +43,7 @@ const socialLinks = [
   {
     icon: Linkedin,
     label: "LinkedIn",
-    href: "https://linkedin.com/in/seu-usuario",
+    href: "https://www.linkedin.com/in/eduardobuenog",
   },
 ];
 
