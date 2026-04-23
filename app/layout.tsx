@@ -8,6 +8,9 @@ const _geistMono = Geist_Mono({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: 'Eduardo Bueno | Desenvolvedor Web',
+  verification: {
+    google: 'uuUNu75m-Y_8deLtPyMFOyeunbiNPG1rotIszacYZN0',
+  },
   description: 'Portfólio de desenvolvedor full stack especializado em React, Node.js e tecnologias web modernas',
   generator: 'v0.app',
   icons: {
