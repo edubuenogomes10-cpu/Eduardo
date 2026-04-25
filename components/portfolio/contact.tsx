@@ -1,17 +1,17 @@
 "use client";
 
 import { useState } from "react";
+import { Github, Linkedin, Mail, MapPin, Phone, Send } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Card, CardContent } from "@/components/ui/card";
-import { Mail, MapPin, Phone, Send, Github, Linkedin } from "lucide-react";
 
 const githubUrl = "https://github.com/edubuenogomes10-cpu";
 const emailAddress = "edubuenogomes10@gmail.com";
 const whatsappBaseUrl = "https://wa.me/5553999953748";
 const defaultWhatsappMessage =
-  "Ola, vim pelo seu portfolio e gostaria de falar sobre um projeto.";
+  "Olá, vim pelo seu portfólio e gostaria de falar sobre um projeto.";
 
 const contactInfo = [
   {
@@ -22,13 +22,13 @@ const contactInfo = [
   },
   {
     icon: Phone,
-    label: "Telefone",
+    label: "WhatsApp",
     value: "(53) 99995-3748",
     href: `${whatsappBaseUrl}?text=${encodeURIComponent(defaultWhatsappMessage)}`,
   },
   {
     icon: MapPin,
-    label: "Localizacao",
+    label: "Localização",
     value: "Bagé, RS",
     href: "#",
   },
@@ -58,7 +58,7 @@ export function Contact() {
     e.preventDefault();
 
     const whatsappMessage = [
-      "Ola, Eduardo! Vim pelo seu portfolio.",
+      "Olá, Eduardo! Vim pelo seu portfólio.",
       "",
       `Nome: ${formData.name}`,
       `Email: ${formData.email}`,
@@ -76,25 +76,20 @@ export function Contact() {
   };
 
   return (
-    <section id="contato" className="py-20">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
-            Entre em Contato
-          </h2>
-          <div className="w-20 h-1 bg-primary mx-auto rounded-full mb-4" />
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            Tem um projeto em mente ou quer bater um papo? Ficarei feliz em ouvir
-            de voce!
-          </p>
-        </div>
-
-        <div className="grid lg:grid-cols-2 gap-12">
+    <section id="contato" className="py-20 sm:py-24">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6">
+        <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr]">
           <div>
-            <h3 className="text-xl font-semibold text-foreground mb-6">
-              Informacoes de Contato
-            </h3>
-            <div className="space-y-4 mb-8">
+            <span className="section-kicker">Contato</span>
+            <h2 className="section-heading mt-4 text-foreground">
+              Vamos construir uma presença digital mais forte para o seu projeto.
+            </h2>
+            <p className="mt-5 max-w-xl text-base leading-8 text-muted-foreground">
+              Se você quer um site com visual mais profissional, me chama. Posso
+              ajudar tanto na parte técnica quanto na direção do acabamento.
+            </p>
+
+            <div className="mt-8 space-y-4">
               {contactInfo.map((info) => (
                 <a
                   key={info.label}
@@ -103,48 +98,52 @@ export function Contact() {
                   rel={
                     info.href.startsWith("http") ? "noopener noreferrer" : undefined
                   }
-                  className="flex items-center gap-4 p-4 bg-card rounded-xl border border-border hover:border-primary/50 transition-colors"
+                  className="surface-panel flex items-center gap-4 p-4 transition-transform duration-300 hover:-translate-y-0.5"
                 >
-                  <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
-                    <info.icon className="h-5 w-5 text-primary" />
+                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10 text-primary">
+                    <info.icon className="h-5 w-5" />
                   </div>
                   <div>
-                    <p className="text-sm text-muted-foreground">{info.label}</p>
-                    <p className="font-medium text-foreground">{info.value}</p>
+                    <p className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+                      {info.label}
+                    </p>
+                    <p className="mt-1 font-medium text-foreground">{info.value}</p>
                   </div>
                 </a>
               ))}
             </div>
 
-            <h3 className="text-xl font-semibold text-foreground mb-4">
-              Redes Sociais
-            </h3>
-            <div className="flex gap-4">
+            <div className="mt-8 flex items-center gap-3">
               {socialLinks.map((social) => (
                 <a
                   key={social.label}
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-3 bg-card rounded-xl border border-border hover:border-primary/50 hover:bg-primary hover:text-primary-foreground transition-all"
+                  className="flex h-11 w-11 items-center justify-center rounded-full border border-border/70 bg-black/20 text-foreground transition-colors hover:border-primary/40 hover:text-primary"
                   aria-label={social.label}
                 >
-                  <social.icon className="h-6 w-6" />
+                  <social.icon className="h-5 w-5" />
                 </a>
               ))}
             </div>
           </div>
 
-          <Card className="border-border">
-            <CardContent className="p-6">
-              <h3 className="text-xl font-semibold text-foreground mb-6">
-                Envie uma Mensagem
+          <Card className="surface-panel rounded-[1.75rem] border-0 shadow-none">
+            <CardContent className="p-7 sm:p-8">
+              <h3 className="text-2xl font-semibold text-foreground">
+                Envie uma mensagem
               </h3>
-              <form onSubmit={handleSubmit} className="space-y-4">
+              <p className="mt-2 text-sm leading-7 text-muted-foreground">
+                O formulário monta a mensagem e abre direto no WhatsApp para
+                acelerar o contato.
+              </p>
+
+              <form onSubmit={handleSubmit} className="mt-6 space-y-5">
                 <div>
                   <label
                     htmlFor="name"
-                    className="block text-sm font-medium text-foreground mb-2"
+                    className="mb-2 block text-sm font-medium text-foreground"
                   >
                     Nome
                   </label>
@@ -157,12 +156,13 @@ export function Contact() {
                       setFormData({ ...formData, name: e.target.value })
                     }
                     required
+                    className="h-12 rounded-2xl border-border/80 bg-black/20"
                   />
                 </div>
                 <div>
                   <label
                     htmlFor="email"
-                    className="block text-sm font-medium text-foreground mb-2"
+                    className="mb-2 block text-sm font-medium text-foreground"
                   >
                     Email
                   </label>
@@ -175,28 +175,34 @@ export function Contact() {
                       setFormData({ ...formData, email: e.target.value })
                     }
                     required
+                    className="h-12 rounded-2xl border-border/80 bg-black/20"
                   />
                 </div>
                 <div>
                   <label
                     htmlFor="message"
-                    className="block text-sm font-medium text-foreground mb-2"
+                    className="mb-2 block text-sm font-medium text-foreground"
                   >
                     Mensagem
                   </label>
                   <Textarea
                     id="message"
-                    placeholder="Escreva sua mensagem para eu te responder no WhatsApp..."
-                    rows={5}
+                    placeholder="Me conte sobre o projeto, objetivo do site e prazo."
+                    rows={6}
                     value={formData.message}
                     onChange={(e) =>
                       setFormData({ ...formData, message: e.target.value })
                     }
                     required
+                    className="rounded-2xl border-border/80 bg-black/20"
                   />
                 </div>
-                <Button type="submit" className="w-full" size="lg">
-                  <Send className="h-4 w-4 mr-2" />
+                <Button
+                  type="submit"
+                  size="lg"
+                  className="h-12 w-full rounded-full text-sm font-semibold shadow-[0_14px_32px_-18px_rgba(129,74,145,0.55)]"
+                >
+                  <Send className="mr-2 h-4 w-4" />
                   Enviar no WhatsApp
                 </Button>
               </form>

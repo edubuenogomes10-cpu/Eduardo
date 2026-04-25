@@ -2,17 +2,31 @@ import Image from "next/image";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { ExternalLink, Github, Clock } from "lucide-react";
+import { Clock, ExternalLink, Github } from "lucide-react";
 
 const projects = [
   {
-    title: "Thayná",
+    title: "Thayná Mendoza Veterinária",
     description:
-      "Site institucional desenvolvido para a Thayná, com foco em apresentar servicos, contato e uma experiencia responsiva.",
-    image: "/projects/medvethayna-cover.png",
+      "Site institucional com apresentação elegante, contato facilitado e identidade visual voltada ao atendimento veterinário.",
+    image: "/projects/thayna-mendoza-veterinaria.png",
+    imageClassName: "object-contain p-7",
+    imageWrapperClassName: "bg-white",
     technologies: ["Next.js", "React", "CSS"],
     liveUrl: "https://medvethayna.com.br/",
     githubUrl: "https://github.com/edubuenogomes10-cpu",
+    comingSoon: false,
+  },
+  {
+    title: "Márcio Garcia Fotografia",
+    description:
+      "Portfólio de fotografia com foco em presença visual, apresentação dos ensaios e contato comercial.",
+    image: "/projects/marcio-garcia-logo.png",
+    imageClassName: "object-contain p-7",
+    imageWrapperClassName: "bg-white",
+    technologies: [],
+    liveUrl: "https://www.marciogarciafotografia.com.br/",
+    githubUrl: "#",
     comingSoon: false,
   },
   {
@@ -55,80 +69,99 @@ const projects = [
 
 export function Projects() {
   return (
-    <section id="projetos" className="py-20">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
-            Meus Projetos
-          </h2>
-          <div className="w-20 h-1 bg-primary mx-auto rounded-full mb-4" />
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            Confira alguns dos projetos que desenvolvi. Cada um representa um
-            desafio unico e uma oportunidade de aprendizado.
+    <section id="projetos" className="py-20 sm:py-24">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6">
+        <div className="mb-12 flex flex-col gap-4 sm:mb-14 sm:flex-row sm:items-end sm:justify-between">
+          <div className="max-w-2xl">
+            <span className="section-kicker">Projetos</span>
+            <h2 className="section-heading mt-4 text-foreground">
+              Trabalhos com foco em identidade, clareza e entrega objetiva.
+            </h2>
+          </div>
+          <p className="max-w-xl text-sm leading-7 text-muted-foreground">
+            Cada projeto aqui entra como uma vitrine de acabamento visual e
+            implementação. A ideia é mostrar menos volume e mais consistência.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
           {projects.map((project, index) => (
             <Card
               key={`${project.title}-${index}`}
-              className={`group overflow-hidden border-border hover:border-primary/50 transition-all duration-300 ${
-                project.comingSoon ? "opacity-80" : ""
+              className={`group overflow-hidden rounded-[1.5rem] border-border/70 bg-[#171717]/88 shadow-[0_18px_60px_-36px_rgba(0,0,0,0.45)] transition-all duration-300 hover:-translate-y-1 hover:border-primary/25 ${
+                project.comingSoon ? "opacity-85" : ""
               }`}
             >
-              <div className="relative h-48 overflow-hidden">
+              <div
+                className={`relative h-56 overflow-hidden border-b border-border/60 ${
+                  project.imageWrapperClassName ?? "bg-[#141311]"
+                }`}
+              >
                 <Image
                   src={project.image}
                   alt={project.title}
                   fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-300"
+                  className={`transition-transform duration-500 ${
+                    project.imageClassName ?? "object-cover"
+                  } ${project.comingSoon ? "" : "group-hover:scale-[1.02]"}`}
                 />
                 {project.comingSoon && (
-                  <div className="absolute inset-0 bg-foreground/60 flex items-center justify-center">
-                    <div className="flex items-center gap-2 bg-primary text-primary-foreground px-4 py-2 rounded-full">
-                      <Clock className="h-4 w-4" />
-                      <span className="font-medium">Em Breve</span>
+                  <div className="absolute inset-0 flex items-center justify-center bg-[linear-gradient(180deg,rgba(28,20,30,0.16),rgba(28,20,30,0.62))]">
+                    <div className="flex items-center gap-2 rounded-full bg-black/80 px-4 py-2 text-sm font-medium text-foreground">
+                      <Clock className="h-4 w-4 text-primary" />
+                      Em breve
                     </div>
                   </div>
                 )}
               </div>
+
               <CardContent className="p-6">
-                <h3 className="text-xl font-semibold text-foreground mb-2">
+                <h3 className="text-2xl font-semibold text-foreground">
                   {project.title}
                 </h3>
-                <p className="text-sm text-muted-foreground mb-4 line-clamp-2">
+                <p className="mt-3 text-sm leading-7 text-muted-foreground">
                   {project.description}
                 </p>
+
                 {project.technologies.length > 0 && (
-                  <div className="flex flex-wrap gap-2 mb-4">
+                  <div className="mt-5 flex flex-wrap gap-2">
                     {project.technologies.map((tech) => (
-                      <Badge key={tech} variant="secondary" className="text-xs">
+                      <Badge
+                        key={tech}
+                        variant="secondary"
+                        className="rounded-full border border-primary/10 bg-primary/6 px-3 py-1 text-[11px] uppercase tracking-[0.18em] text-primary"
+                      >
                         {tech}
                       </Badge>
                     ))}
                   </div>
                 )}
+
                 {!project.comingSoon && (
-                  <div className="flex gap-3">
-                    <Button size="sm" asChild>
+                  <div className="mt-6 flex gap-3">
+                    <Button asChild className="rounded-full px-5">
                       <a
                         href={project.liveUrl}
                         target="_blank"
                         rel="noopener noreferrer"
                       >
-                        <ExternalLink className="h-4 w-4 mr-2" />
-                        Demo
+                        <ExternalLink className="mr-2 h-4 w-4" />
+                        Acessar
                       </a>
                     </Button>
                     {project.githubUrl !== "#" && (
-                      <Button size="sm" variant="outline" asChild>
+                      <Button
+                        variant="outline"
+                        asChild
+                        className="rounded-full border-border/80 bg-black/25 px-5"
+                      >
                         <a
                           href={project.githubUrl}
                           target="_blank"
                           rel="noopener noreferrer"
                         >
-                          <Github className="h-4 w-4 mr-2" />
-                          Codigo
+                          <Github className="mr-2 h-4 w-4" />
+                          Código
                         </a>
                       </Button>
                     )}

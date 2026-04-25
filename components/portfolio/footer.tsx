@@ -1,20 +1,15 @@
-import { Heart } from "lucide-react";
-
 export function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="py-8 bg-card border-t border-border">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6">
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-sm text-muted-foreground">
-            &copy; {currentYear} Eduardo Bueno. Todos os direitos reservados.
-          </p>
-          <p className="flex items-center gap-1 text-sm text-muted-foreground">
-            Feito com <Heart className="h-4 w-4 text-red-500 fill-red-500" /> usando
-            React & Next.js
-          </p>
-        </div>
+    <footer className="border-t border-border/70 bg-black/30 py-8 backdrop-blur-sm">
+      <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-3 px-4 sm:flex-row sm:px-6">
+        <p className="text-sm text-muted-foreground">
+          &copy; {currentYear} Eduardo Bueno. Todos os direitos reservados.
+        </p>
+        <p className="text-sm text-muted-foreground">
+          Desenvolvido com Next.js, React e atenção a acabamento visual.
+        </p>
       </div>
     </footer>
   );
