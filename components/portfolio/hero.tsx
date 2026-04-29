@@ -1,5 +1,13 @@
 import Image from "next/image";
-import { ArrowDown, Github, Linkedin, Mail } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
+import {
+  ArrowDown,
+  Github,
+  Instagram,
+  Linkedin,
+  Mail,
+  MessageCircle,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const emailAddress = "edubuenogomes10@gmail.com";
@@ -10,6 +18,38 @@ const stats = [
   { label: "Projetos publicados", value: "2+" },
   { label: "Stack principal", value: "React + Next" },
   { label: "Entrega", value: "UI responsiva" },
+];
+
+const socialLinks: Array<{
+  label: string;
+  href: string;
+  icon: LucideIcon;
+}> = [
+  {
+    label: "GitHub",
+    href: "https://github.com/edubuenogomes10-cpu",
+    icon: Github,
+  },
+  {
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/in/eduardobuenog",
+    icon: Linkedin,
+  },
+  {
+    label: "Instagram",
+    href: "https://www.instagram.com/eduardo_buenodev/",
+    icon: Instagram,
+  },
+  {
+    label: "Email",
+    href: `mailto:${emailAddress}`,
+    icon: Mail,
+  },
+  {
+    label: "WhatsApp",
+    href: whatsappUrl,
+    icon: MessageCircle,
+  },
 ];
 
 export function Hero() {
@@ -62,29 +102,20 @@ export function Hero() {
               ))}
             </div>
 
-            <div className="mt-10 flex items-center gap-3">
-              <a
-                href="https://github.com/edubuenogomes10-cpu"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex h-11 w-11 items-center justify-center rounded-full border border-border/70 bg-black/20 text-foreground transition-colors hover:border-primary/40 hover:text-primary"
-              >
-                <Github className="h-5 w-5" />
-              </a>
-              <a
-                href="https://www.linkedin.com/in/eduardobuenog"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex h-11 w-11 items-center justify-center rounded-full border border-border/70 bg-black/20 text-foreground transition-colors hover:border-primary/40 hover:text-primary"
-              >
-                <Linkedin className="h-5 w-5" />
-              </a>
-              <a
-                href={`mailto:${emailAddress}`}
-                className="flex h-11 w-11 items-center justify-center rounded-full border border-border/70 bg-black/20 text-foreground transition-colors hover:border-primary/40 hover:text-primary"
-              >
-                <Mail className="h-5 w-5" />
-              </a>
+            <div className="social-dock mt-10">
+              {socialLinks.map(({ label, href, icon: Icon }) => (
+                <a
+                  key={label}
+                  href={href}
+                  target={href.startsWith("mailto:") ? undefined : "_blank"}
+                  rel={href.startsWith("mailto:") ? undefined : "noopener noreferrer"}
+                  className="social-icon"
+                  aria-label={label}
+                >
+                  <Icon className="h-5 w-5" />
+                  <span className="social-icon__label">{label}</span>
+                </a>
+              ))}
             </div>
           </div>
 

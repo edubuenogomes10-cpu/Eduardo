@@ -1,7 +1,15 @@
 "use client";
 
 import { useState } from "react";
-import { Github, Linkedin, Mail, MapPin, Phone, Send } from "lucide-react";
+import {
+  Github,
+  Instagram,
+  Linkedin,
+  Mail,
+  MapPin,
+  Phone,
+  Send,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -44,6 +52,11 @@ const socialLinks = [
     icon: Linkedin,
     label: "LinkedIn",
     href: "https://www.linkedin.com/in/eduardobuenog",
+  },
+  {
+    icon: Instagram,
+    label: "Instagram",
+    href: "https://www.instagram.com/eduardo_buenodev/",
   },
 ];
 
@@ -113,17 +126,18 @@ export function Contact() {
               ))}
             </div>
 
-            <div className="mt-8 flex items-center gap-3">
+            <div className="social-dock mt-8 justify-start">
               {socialLinks.map((social) => (
                 <a
                   key={social.label}
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex h-11 w-11 items-center justify-center rounded-full border border-border/70 bg-black/20 text-foreground transition-colors hover:border-primary/40 hover:text-primary"
+                  className="social-icon"
                   aria-label={social.label}
                 >
                   <social.icon className="h-5 w-5" />
+                  <span className="social-icon__label">{social.label}</span>
                 </a>
               ))}
             </div>
