@@ -10,9 +10,8 @@ export const metadata: Metadata = {
   description:
     "Portfólio de desenvolvedor full stack especializado em React, Node.js e tecnologias web modernas",
   icons: {
-    icon: "/logo_edu.ico",
-    shortcut: "/logo_edu.ico",
-    apple: "/apple-icon.png",
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
   },
 };
 
