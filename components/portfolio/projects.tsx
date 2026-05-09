@@ -30,6 +30,18 @@ const projects = [
     comingSoon: false,
   },
   {
+    title: "Gabriel Mello Fotografia",
+    description:
+      "Portfólio de fotografia com apresentação profissional, foco visual forte e caminho direto para contato comercial.",
+    image: "/projects/gabriel-mello-logo-header.png",
+    imageClassName: "object-contain p-4",
+    imageWrapperClassName: "bg-black",
+    technologies: [],
+    liveUrl: "https://www.gabrielmellofotografia.com.br/",
+    githubUrl: "#",
+    comingSoon: false,
+  },
+  {
     title: "Em breve",
     description: "Novo projeto em desenvolvimento.",
     image: "/projects/project2.jpg",

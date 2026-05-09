@@ -15,7 +15,7 @@ const whatsappUrl =
   "https://wa.me/5553999953748?text=Olá%2C%20vim%20pelo%20seu%20portfólio%20e%20gostaria%20de%20falar%20sobre%20um%20projeto.";
 
 const stats = [
-  { label: "Projetos publicados", value: "2+" },
+  { label: "Projetos publicados", value: "3+" },
   { label: "Stack principal", value: "React + Next" },
   { label: "Entrega", value: "UI responsiva" },
 ];
